@@ -3,11 +3,10 @@ package service
 import (
 	"encoding/json"
 	"errors"
+	"go.uber.org/atomic"
 	"sync"
 	"x-ui/logger"
 	"x-ui/xray"
-
-	"go.uber.org/atomic"
 )
 
 var p *xray.Process
@@ -88,7 +87,7 @@ func (s *XrayService) GetXrayTraffic() ([]*xray.Traffic, error) {
 func (s *XrayService) RestartXray(isForce bool) error {
 	lock.Lock()
 	defer lock.Unlock()
-	logger.Debug("restart xray, force:", isForce)
+	logger.Debug("restart xray")
 
 	xrayConfig, err := s.GetXrayConfig()
 	if err != nil {
