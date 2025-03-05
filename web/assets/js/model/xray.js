@@ -1217,7 +1217,7 @@ Inbound.VLESSSettings = class extends Inbound.Settings {
 };
 Inbound.VLESSSettings.VLESS = class extends XrayCommonClass {
 
-    constructor(id=RandomUtil.randomUUID(), flow=VLESS_FLOW.DIRECT) {
+    constructor(id=RandomUtil.randomUUID(), flow="") {
         super();
         this.id = id;
         this.flow = flow;
@@ -1226,7 +1226,7 @@ Inbound.VLESSSettings.VLESS = class extends XrayCommonClass {
     static fromJson(json={}) {
         return new Inbound.VLESSSettings.VLESS(
             json.id,
-            json.flow,
+            "",
         );
     }
 };
